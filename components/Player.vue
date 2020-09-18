@@ -14,7 +14,7 @@ export default {
 	name: 'Player',
 	methods: {
 		minimize: function() {
-			let player = document.getElementById("player-wrapper");
+			let player = document.getElementById("player-wrapper")
 			player.classList.toggle("minimized")
 		}
 	}
@@ -30,17 +30,13 @@ export default {
 	width: 100%
 	@include flexCenter
 	justify-content: flex-end
-	// #player
-	// 	margin-right: 0.25rem
 	&.minimized
 		bottom: -4rem
 	#player-content-wrapper
-		// @include flexCenter
 		padding: 0.25rem
 		#player-minimize
 			@include flexCenter
 			justify-content: flex-end
-			// width: auto
 			#player-minimize-icon
 				@include flexCenter
 				box-sizing: content-box
@@ -54,5 +50,4 @@ export default {
 				&:hover
 					box-shadow: var(--theme-boxShadowHover)
 		#player
-			// flex: 1
 </style>

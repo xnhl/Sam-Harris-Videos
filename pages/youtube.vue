@@ -19,13 +19,13 @@ export default {
 	},
 	components: {YTEpisode, Sorter},
 	mounted() {
-		var lazyloadImages = document.querySelectorAll('.lazy');
+		var lazyloadImages = document.querySelectorAll('.lazy')
 		var imageObserver = new IntersectionObserver((entries, observer) => {
 			entries.forEach((entry) => {
 				if (entry.isIntersecting) {
-					var image = entry.target;
-					image.src = image.dataset.lazysrc;
-					image.classList.remove('lazy');
+					var image = entry.target
+					image.src = image.dataset.lazysrc
+					image.classList.remove('lazy')
 					imageObserver.unobserve(image)
 				}
 			})

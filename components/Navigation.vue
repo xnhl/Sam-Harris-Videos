@@ -9,12 +9,6 @@
 			<div id="sort-icon-wrapper" @click="toggleSorter">
 				<img id="sort-icon" src="@/static/icons/sort.svg">
 			</div>
-			<!-- <div id="menu-icon-wrapper">
-				<img id="menu-icon" src="@/static/icons/menu.svg">
-			</div> -->
-			<!-- <div id="theme-icon-wrapper" @click="toggleTheme">
-				<img id="theme-icon" src="@/static/icons/sun.svg">
-			</div> -->
 		</div>
 	</div>
 </template>
@@ -30,41 +24,37 @@ export default {
 	},
 	methods: {
 		handleScroll: function() {
-			let y = window.scrollY;
-			this.scroll_new = y;
-			let nav_wrapper = document.getElementById("nav-wrapper");
-			let sorter = document.getElementById("sorter");
-			// let sorter = document.getElementsByClassName("sorter")[0];
+			let y = window.scrollY
+			this.scroll_new = y
+			let nav_wrapper = document.getElementById("nav-wrapper")
+			let sorter = document.getElementById("sorter")
 			if (this.scroll_new > this.scroll_old) {
-				nav_wrapper.classList.add("nav-hidden");
-				this.scroll_old = y;
+				nav_wrapper.classList.add("nav-hidden")
+				this.scroll_old = y
 				if (sorter && sorter !== null) {
-					sorter.classList.add("sorter-offset");
+					sorter.classList.add("sorter-offset")
 				}
 			} else if (this.scroll_new < this.scroll_old) {
-				nav_wrapper.classList.remove("nav-hidden");
-				this.scroll_old = y;
+				nav_wrapper.classList.remove("nav-hidden")
+				this.scroll_old = y
 				if (sorter && sorter !== null) {
-					sorter.classList.remove("sorter-offset");
+					sorter.classList.remove("sorter-offset")
 				}
 			}
 		},
 		toggleSorter: function() {
-			let sorter = document.getElementById("sorter");
+			let sorter = document.getElementById("sorter")
 			sorter.classList.toggle("hide")
 		},
-		// toggleTheme: function() {
-		// 	this.$emit("toggle-theme")
-		// },
 		toggleMenu: function () {
-			let menu = document.getElementById("main-menu");
-			let overlay = document.getElementById("overlay");
-			menu.classList.toggle("shown");
-			overlay.classList.toggle("overlay-shown");
+			let menu = document.getElementById("main-menu")
+			let overlay = document.getElementById("overlay")
+			menu.classList.toggle("shown")
+			overlay.classList.toggle("overlay-shown")
 		}
 	},
 	mounted() {
-		window.addEventListener('scroll', this.handleScroll);
+		window.addEventListener('scroll', this.handleScroll)
 	}
 }
 </script>
@@ -77,7 +67,6 @@ export default {
 	width: 100%
 	z-index: 3
 	@include flexCenter
-	// transition: $transition
 	justify-content: flex-end
 	background: var(--theme-itemWhite)
 	box-shadow: 0 0 0.5rem 0.125rem rgba(black, 0.1)

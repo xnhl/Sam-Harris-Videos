@@ -4,11 +4,7 @@
 			<div id="home-title-wrapper">
 				<div id="home-subtitle">An Unofficial Fan Site For</div>
 				<div id="home-title">Sam Harris</div>
-				<!-- <div id="home-title">Sam Harris</div> -->
 			</div>
-			<!-- <div id="home-main-image-wrapper">
-				<img id="home-main-image" src="/img/harris_bg.png" alt="Sam Harris">
-			</div> -->
 			<div id="home-intro">
 				<div class="home-intro-para">
 					Sam Harris is the author of five New York Times best sellers. His books include The End of Faith, Letter to a Christian Nation, The Moral Landscape, Free Will, Lying, Waking Up, and Islam and the Future of Tolerance (with Maajid Nawaz). The End of Faith won the 2005 PEN Award for Nonfiction. His writing and public lectures cover a wide range of topics—neuroscience, moral philosophy, religion, meditation practice, human violence, rationality—but generally focus on how a growing understanding of ourselves and the world is changing our sense of how we should live.
@@ -20,9 +16,6 @@
 					Sam received a degree in philosophy from Stanford University and a Ph.D. in neuroscience from UCLA. He has also practiced meditation for more than 30 years and has studied with many Tibetan, Indian, Burmese, and Western meditation teachers, both in the United States and abroad. Sam has created the Waking Up App for anyone who wants to learn to meditate in a modern, scientific context.
 				</div>
 			</div>
-			<!-- <div id="home-intro">
-				Sam Harris is a neuroscientist, philosopher, New York Times best-selling author, host of the Making Sense podcast, and creator of the Waking Up App.
-			</div> -->
 			<div id="home-social-links">
 				<a class="home-social-link" data-site="facebook" href="https://www.facebook.com/Samharrisorg/" target="_blank">
 					<img class="home-social-link-icon" src="/icons/facebook.svg" alt="facebook">
@@ -79,18 +72,6 @@ export default {
 				margin: 1rem auto
 				font-size: 1.1rem
 				@include flexCenter
-		// #home-main-image-wrapper
-		// 	width: 100%
-		// 	margin: 0 auto
-		// 	min-height: 30rem
-		// 	animation: $pageFade
-		// 	@include flexCenter
-		// 	#home-main-image
-		// 		width: 100%
-		// 		height: auto
-		// 		opacity: 0.75
-		// 		max-width: 60rem
-				// max-width: 100%
 		#home-intro
 			margin: 2rem auto
 			max-width: 50rem

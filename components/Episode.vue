@@ -12,7 +12,6 @@
 		<div class="episode-description" v-if="has_description" v-text="this.info.description"></div>
 		<div class="episode-duration" v-if="has_duration" v-text="getDuration(this.info.duration)"></div>
 		<div class="episode-links" :class="{ 'disabled': this.info.locked }">
-			<!-- <div class="episode-link">Link</div> -->
 			<a class="episode-link link" :href="this.info.link" target="_blank">
 				<div class="episode-icon-wrapper">
 					<img class="episode-icon" src="/icons/link.svg" alt="link">
@@ -25,13 +24,7 @@
 				</div>
 				<div class="episode-link-text">Listen</div>
 			</div>
-			<!-- <div class="episode-listen"> -->
-				<!-- <div class="episode-listen-text">Listen</div> -->
-			<!-- </div> -->
 		</div>
-		<!-- <div class="episode-date" v-if="has_date" v-text="this.info.date"></div> -->
-		<!-- <audio class="episode-audio" :src="this.info.audio" :data-lazysrc="this.info.audio" controls>Play</audio> -->
-		<!-- <audio class="episode-audio" src="" :data-lazysrc="this.info.audio" controls>Play</audio> -->
 	</div>
 </template>
 
@@ -57,9 +50,6 @@ export default {
 		has_description: function() {
 			return this.info.description !== "" ? true : false
 		},
-		// has_date: function() {
-		// 	return this.info.date !== null ? true : false
-		// },
 		date: function() {
 			return this.info.date !== null ? this.info.date : null
 		}
@@ -67,20 +57,18 @@ export default {
 	methods: {
 		getDuration: function(i) {
 			if (i !== null) {
-				let initial = new Date(i * 1000).toISOString().substring(11, 19);
-				let final = initial.substring(0, 2) == "00" ? initial.substring(3) : initial;
+				let initial = new Date(i * 1000).toISOString().substring(11, 19)
+				let final = initial.substring(0, 2) == "00" ? initial.substring(3) : initial
 				return `${final}`
-				// return `Duration: ${final}`
 			} else {
 				return "Unknown"
-				// return "Duration: Unknown"
 			}
 		},
 		play: function() {
-			let player_wrapper = document.getElementById("player-wrapper");
-			let player = document.getElementById("player");
-			player_wrapper.classList.remove("hide");
-			player_wrapper.classList.remove("minimized");
+			let player_wrapper = document.getElementById("player-wrapper")
+			let player = document.getElementById("player")
+			player_wrapper.classList.remove("hide")
+			player_wrapper.classList.remove("minimized")
 			player.src = this.info.audio
 		}
 	}
@@ -95,7 +83,6 @@ export default {
 	position: relative
 	animation: $pageFade
 	@include flexCenter
-	// flex-direction: column
 	border-radius: 0.25rem
 	background: var(--theme-whiteBG)
 	box-shadow: var(--theme-boxShadowLight)
@@ -121,7 +108,6 @@ export default {
 				height: 1rem
 				width: 1rem
 	.episode-image-wrapper
-		// min-width: 100%
 		flex: 1
 		min-height: 130px
 		padding: 0.5rem
@@ -133,9 +119,7 @@ export default {
 			max-width: 100%
 			height: auto
 			border-radius: 0.25rem
-	// .episode-title, .episode-description, .episode-duration, .episode-date
 	.episode-title, .episode-description, .episode-duration
-		// flex: 1
 		height: auto
 		padding: 0.5rem
 		min-width: 100%
@@ -145,7 +129,6 @@ export default {
 		padding: 0
 	.episode-links
 		width: 100%
-		// align-items: stretch
 		justify-content: space-between
 		align-self: flex-end
 		@include flexCenter
@@ -172,10 +155,8 @@ export default {
 				@include flexCenter
 				text-align: center
 			.episode-icon-wrapper
-				// flex: 1
 				width: auto
 				@include flexCenter
-				// border: 1px solid red
 				.episode-icon
 					@include flexCenter
 					box-sizing: content-box
@@ -183,28 +164,4 @@ export default {
 					height: 1.5rem
 					width: 1.5rem
 					transition: all 0.1s ease-in-out
-		// .episode-link
-		// 	flex: 1
-		// 	margin-right: 0.5rem
-		// 	border: 1px solid red
-		// 	padding: 0.25rem
-		// 	@include flexCenter
-		// .episode-listen
-		// 	flex: 1
-		// 	border: 1px solid red
-		// 	@include flexCenter
-		// 	.episode-listen-text
-		// 		flex: 1
-		// 		padding: 0.25rem
-		// 		border: 1px solid red
-		// 	.episode-listen-icon-wrapper
-		// 		width: auto
-		// 		border: 1px solid red
-		// 		@include flexCenter
-		// 		.episode-listen-icon
-		// 			box-sizing: content-box
-		// 			border: 1px solid red
-		// 			height: 1rem
-		// 			width: 1rem
-		// 			padding: 0.25rem
 </style>

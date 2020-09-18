@@ -39,19 +39,19 @@ export default {
 	},
 	methods: {
 		sortByTitle: function() {
-			let wrapper = document.getElementById("episodes-wrapper");
-			let items = [...wrapper.children];
+			let wrapper = document.getElementById("episodes-wrapper")
+			let items = [...wrapper.children]
 			let sorted
 			if (this.youtube) {
 				sorted = items.sort((a, b) => {
-					let aa = a.getElementsByClassName("episode-title")[0].textContent.replace(/[^a-z0-9]/gi, "").toLowerCase();
-					let bb = b.getElementsByClassName("episode-title")[0].textContent.replace(/[^a-z0-9]/gi, "").toLowerCase();
+					let aa = a.getElementsByClassName("episode-title")[0].textContent.replace(/[^a-z0-9]/gi, "").toLowerCase()
+					let bb = b.getElementsByClassName("episode-title")[0].textContent.replace(/[^a-z0-9]/gi, "").toLowerCase()
 					return aa < bb ? -1 : aa > bb ? 1 : 0
 				})
 			} else if (this.episodes) {
 				sorted = items.sort((a, b) => {
-					let aa = a.dataset.title.replace(/[^a-z0-9]/gi, "").toLowerCase();
-					let bb = b.dataset.title.replace(/[^a-z0-9]/gi, "").toLowerCase();
+					let aa = a.dataset.title.replace(/[^a-z0-9]/gi, "").toLowerCase()
+					let bb = b.dataset.title.replace(/[^a-z0-9]/gi, "").toLowerCase()
 					return aa < bb ? -1 : aa > bb ? 1 : 0
 				})
 			}
@@ -65,13 +65,13 @@ export default {
 			window.scrollTo(0, 0)
 		},
 		sortByDate: function() {
-			let wrapper = document.getElementById("episodes-wrapper");
-			let items = [...wrapper.children];
+			let wrapper = document.getElementById("episodes-wrapper")
+			let items = [...wrapper.children]
 			let sorted = items.sort((a, b) => {
-				let aa = new Date(a.dataset.date);
-				let bb = new Date(b.dataset.date);
+				let aa = new Date(a.dataset.date)
+				let bb = new Date(b.dataset.date)
 				return aa < bb ? -1 : aa > bb ? 1 : 0
-			});
+			})
 			if (this.sortDate % 2 === 0) {
 				sorted = sorted.reverse()
 			}
@@ -82,13 +82,13 @@ export default {
 			window.scrollTo(0, 0)
 		},
 		sortByRating: function() {
-			let wrapper = document.getElementById("episodes-wrapper");
-			let items = [...wrapper.children];
+			let wrapper = document.getElementById("episodes-wrapper")
+			let items = [...wrapper.children]
 			let sorted = items.sort((a, b) => {
-				let aa = parseFloat(a.dataset.rating);
-				let bb = parseFloat(b.dataset.rating);
+				let aa = parseFloat(a.dataset.rating)
+				let bb = parseFloat(b.dataset.rating)
 				return aa < bb ? -1 : aa > bb ? 1 : 0
-			});
+			})
 			if (this.sortRating % 2 === 0) {
 				sorted = sorted.reverse()
 			}
@@ -99,20 +99,20 @@ export default {
 			window.scrollTo(0, 0)
 		},
 		sortByDuration: function() {
-			let wrapper = document.getElementById("episodes-wrapper");
-			let items = [...wrapper.children];
-			let has_duration = items.filter(item => { return (item.dataset.duration && item.dataset.duration !== null) });
-			let no_duration = items.filter(item => { return (!item.dataset.duration || item.dataset.duration == null) });
+			let wrapper = document.getElementById("episodes-wrapper")
+			let items = [...wrapper.children]
+			let has_duration = items.filter(item => { return (item.dataset.duration && item.dataset.duration !== null) })
+			let no_duration = items.filter(item => { return (!item.dataset.duration || item.dataset.duration == null) })
 			let sorted = has_duration.sort((a, b) => {
-				let aa = parseInt(a.dataset.duration);
-				let bb = parseInt(b.dataset.duration);
+				let aa = parseInt(a.dataset.duration)
+				let bb = parseInt(b.dataset.duration)
 				if (this.sortDuration % 2 === 0) {
 					return aa > bb ? -1 : aa < bb ? 1 : 0
 				} else {
 					return aa < bb ? -1 : aa > bb ? 1 : 0
 				}
-			});
-			let final_set = sorted.concat(no_duration);
+			})
+			let final_set = sorted.concat(no_duration)
 			for (let each of final_set) {
 				wrapper.appendChild(each)
 			}
@@ -120,20 +120,20 @@ export default {
 			window.scrollTo(0, 0)
 		},
 		sortByNumber: function() {
-			let wrapper = document.getElementById("episodes-wrapper");
-			let items = [...wrapper.children];
+			let wrapper = document.getElementById("episodes-wrapper")
+			let items = [...wrapper.children]
 			let has_number = items.filter(item => { return (item.dataset.number && item.dataset.number !== null) })
 			let no_number = items.filter(item => { return (!item.dataset.number || item.dataset.number == null) })
 			let sorted = has_number.sort((a, b) => {
-				let aa = parseInt(a.dataset.number);
-				let bb = parseInt(b.dataset.number);
+				let aa = parseInt(a.dataset.number)
+				let bb = parseInt(b.dataset.number)
 				if (this.sortNumber % 2 === 0) {
 					return aa > bb ? -1 : aa < bb ? 1 : 0
 				} else {
 					return aa < bb ? -1 : aa > bb ? 1 : 0
 				}
-			});
-			let final_set = sorted.concat(no_number);
+			})
+			let final_set = sorted.concat(no_number)
 			for (let each of final_set) {
 				wrapper.appendChild(each)
 			}
@@ -142,13 +142,13 @@ export default {
 		},
 		search: function() {
 			setTimeout(() => {
-				let wrapper = document.getElementById("episodes-wrapper");
-				let items = [...wrapper.children];
-				let text = document.getElementById("sorter-search-input").value.toLowerCase();
+				let wrapper = document.getElementById("episodes-wrapper")
+				let items = [...wrapper.children]
+				let text = document.getElementById("sorter-search-input").value.toLowerCase()
 				for (let each of items) {
-					let title = each.querySelector(".episode-title") !== null ? each.querySelector(".episode-title").textContent.toLowerCase().indexOf(text) : null;
-					let description = each.querySelector(".episode-description") !== null ? each.querySelector(".episode-description").textContent.toLowerCase().indexOf(text) : null;
-					let date = each.querySelector(".episode-date") !== null ? each.querySelector(".episode-date").textContent.toLowerCase().indexOf(text) : null;
+					let title = each.querySelector(".episode-title") !== null ? each.querySelector(".episode-title").textContent.toLowerCase().indexOf(text) : null
+					let description = each.querySelector(".episode-description") !== null ? each.querySelector(".episode-description").textContent.toLowerCase().indexOf(text) : null
+					let date = each.querySelector(".episode-date") !== null ? each.querySelector(".episode-date").textContent.toLowerCase().indexOf(text) : null
 					if (
 						(title == null || title == -1)
 						&& (description == null || description == -1)
@@ -164,7 +164,7 @@ export default {
 					}
 				}
 				window.scrollTo(0, 0)
-			}, 500);
+			}, 500)
 		}
 	}
 }
@@ -172,7 +172,6 @@ export default {
 
 <style lang="sass">
 #sorter
-	// position: fixed
 	position: sticky
 	width: 100%
 	margin: 0 auto

@@ -9,7 +9,6 @@
 		<div class="episode-info-wrapper" :href="this.info.link">
 			<a class="episode-title" v-text="this.info.full_title" :href="this.info.link" target="_blank"></a>
 			<a class="episode-description" v-if="has_description" v-text="description_short" :href="this.info.link" target="_blank"></a>
-			<!-- <div class="episode-description" v-if="has_description" v-text="this.info.description"></div> -->
 			<a class="episode-details-wrapper" :href="this.info.link" target="_blank">
 				<div class="episode-date" v-text="this.info.date"></div>
 				<div class="episode-duration" v-text="getDuration(this.info.length_seconds)"></div>
@@ -32,7 +31,7 @@ export default {
 	},
 	computed: {
 		image_link: function() {
-			let slug = this.info.link.slice(32);
+			let slug = this.info.link.slice(32)
 			return `https://i.ytimg.com/vi/${slug}/hqdefault.jpg`
 		},
 		has_description: function() {
@@ -58,8 +57,6 @@ export default {
 				desc = this.info.description
 			}
 			return desc
-			// return desc.length > 500 ? `${desc.slice(0, 500)}...` : desc
-			// return `${this.info.description.slice(0, 170)}...`
 		},
 		rating_short: function(){
 			return `${this.info.rating.toFixed(2)} / 5`
@@ -71,10 +68,9 @@ export default {
 	methods: {
 		getDuration: function(i) {
 			if (i !== null) {
-				let initial = new Date(i * 1000).toISOString().substring(11, 19);
-				let final = initial.substring(0, 2) == "00" ? initial.substring(3) : initial;
+				let initial = new Date(i * 1000).toISOString().substring(11, 19)
+				let final = initial.substring(0, 2) == "00" ? initial.substring(3) : initial
 				return `${final}`
-				// return `Duration: ${final}`
 			}
 		}
 	}
@@ -90,37 +86,14 @@ export default {
 	@include flexCenter
 	animation: $pageFade
 	text-decoration: none
-	// flex-direction: column
 	border-radius: 0.25rem
 	background: var(--theme-whiteBG)
 	box-shadow: var(--theme-boxShadowLight)
-	// @media (min-width: 68rem)
-	// 	min-width: 40%
-	// 	max-width: 50%
-	// @media (min-width: 35rem)
-	// 	min-width: 40%
-	// 	max-width: 50%
-	// @media (min-width: 50rem)
-	// 	min-width: 30%
-	// @media (min-width: 65rem)
-	// 	min-width: 23%
 	&:hover
 		box-shadow: var(--theme-boxShadowHover)
 		.yt-episode-link-icon-wrapper
 			.yt-episode-link-icon
 				transform: scale(1.25) rotate(180deg)
-	// &.no-description
-	// 	@media (min-width: 35rem)
-	// 		min-width: 40%
-	// 		max-width: 50%
-	// 	@media (min-width: 50rem)
-	// 		min-width: 30%
-	// 	@media (min-width: 65rem)
-	// 		min-width: 23%
-	// &.has-short-description
-	// 	@media (min-width: 35rem)
-	// 		min-width: 40%
-			// max-width: 50%
 	.yt-episode-link-icon-wrapper
 		top: 0
 		right: 0
@@ -177,10 +150,8 @@ export default {
 			text-align: left
 			min-width: 100%
 			word-break: break-word
-			// margin: 0.5rem
 			padding: 0.5rem
 			text-indent: 0.5rem
-			// max-width: 100%
 	.episode-rating
 		width: 100%
 		align-self: flex-end
